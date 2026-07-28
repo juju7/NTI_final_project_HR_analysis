@@ -1,6 +1,7 @@
-# Streamlit link
+## 🌐 Streamlit Deployment Link
 
-https://ntifinalprojecthranalysis-2872026.streamlit.app/
+🔗 **[Live App](https://ntifinalprojecthranalysis-2872026.streamlit.app/)**
+
 
 # 👔 Employee Attrition Predictor
 
@@ -128,6 +129,5 @@ The best-performing model (based on accuracy and classification report metrics) 
 
 ---
 
-## 🌐 Streamlit Deployment Link
 
-🔗 **[Live App](https://your-app-name.streamlit.app)**
+
