@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#1B3A5C"          # navy blue - buttons, sliders, active elements
+backgroundColor = "#FFFFFF"       # main page background - white
+secondaryBackgroundColor = "#EAF0F6"  # sidebar / widget backgrounds - light navy-tinted
+textColor = "#1B2A3A"             # near-navy text for readability
+font = "sans serif"
