@@ -52,6 +52,31 @@ st.write("Enter an employee's details below to estimate their risk of leaving th
 if "step" not in st.session_state:
     st.session_state.step = 1
 
+DEFAULTS = {
+    "age": 30, "gender": encoders["Gender"].classes_[0],
+    "marital_status": encoders["MaritalStatus"].classes_[0],
+    "education": 3, "education_field": encoders["EducationField"].classes_[0],
+    "distance_from_home": 5,
+    "department": encoders["Department"].classes_[0],
+    "job_role": encoders["JobRole"].classes_[0],
+    "job_level": 2, "business_travel": encoders["BusinessTravel"].classes_[0],
+    "overtime": "No", "employee_number": 1,
+    "job_involvement": 3, "performance_rating": 3,
+    "monthly_income": 5000, "monthly_rate": 14000,
+    "daily_rate": 800, "hourly_rate": 65,
+    "percent_salary_hike": 15, "stock_option_level": 1,
+    "job_satisfaction": 3, "env_satisfaction": 3,
+    "relationship_satisfaction": 3, "work_life_balance": 3,
+    "total_working_years": 8, "years_at_company": 5,
+    "years_in_current_role": 3, "years_since_promotion": 1,
+    "years_with_curr_manager": 3, "num_companies_worked": 2,
+    "training_times_last_year": 2,
+}
+
+for _k, _v in DEFAULTS.items():
+    if _k not in st.session_state:
+        st.session_state[_k] = _v
+
 st.progress(st.session_state.step / 4)
 
 titles = [
@@ -159,6 +184,11 @@ with st.form("employee_form"):
 
 
 if st.session_state.step == 4 and submitted:
+    missing = [k for k in DEFAULTS if k not in st.session_state]
+    if missing:
+        st.warning("Please complete all steps before predicting.")
+        st.stop()
+
     s = st.session_state  # shorthand
 
     input_dict = {
